@@ -2,6 +2,13 @@ main {
   max-width: 988px;
   margin: auto;
 }
-#categories{
-  background: red;
+.strapline {
+  background-color: #C6C6C6;
+  border-top: 1px solid #AAAAAA;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  text-align: center;
+  padding: 20px 0;
+}
+img{
+  width: 300px;
 }

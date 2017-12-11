@@ -35,31 +35,33 @@ class CategoriesIndex extends React.Component {
     console.log('INSIDE THE RENDER', this.state.categories);
     return(
       <main>
-        <form
-          className="input-group">
-          <div>
-            <label htmlFor="per-page">Categories</label>
-            <select
-              className="form-control"
-              value={this.state.selections}
-              onChange={this.handleChange}
-              placeholder='Select'
-            >
-              <option value="" disabled>Please select your category</option>
-              <option>Children</option>
-              <option>Comedy</option>
-              <option>Entertainment</option>
-              <option>Factual</option>
-              <option>Films</option>
-              <option>News</option>
-              <option>Sport</option>
-            </select>
-          </div>
-        </form>
-        <div>
+        <header className="strapline">
+          <form
+            className="input-group">
+            <div>
+              <label htmlFor="per-page">Categories</label>
+              <select
+                className="form-control"
+                value={this.state.selections}
+                onChange={this.handleChange}
+                placeholder='Select'
+              >
+                <option value="" disabled>Please select</option>
+                <option>Children</option>
+                <option>Comedy</option>
+                <option>Entertainment</option>
+                <option>Factual</option>
+                <option>Films</option>
+                <option>News</option>
+                <option>Sport</option>
+              </select>
+            </div>
+          </form>
+        </header>
+        <div className="container">
           {this.state.selections && this.state.categories.map((programme, i) =>{
             return(
-              <article key={i} className="row">
+              <div key={i} className="row">
                 <img className="col-4" src={programme._embedded.latestProduction._links.image.href} />
                 <div className="col-8">
                   <h2>{programme.title}</h2>
@@ -67,7 +69,7 @@ class CategoriesIndex extends React.Component {
                   <p>Broadcast time: {programme._embedded.latestProduction.duration.display} runtime</p>
                   <h6>{programme._embedded.latestProduction._embedded.channel.name} - {programme._embedded.latestProduction._embedded.channel.strapline}</h6>
                 </div>
-              </article>
+              </div>
             );
           })}
         </div>
