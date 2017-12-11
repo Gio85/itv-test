@@ -17,8 +17,8 @@ class App extends React.Component {
 
   componentDidMount(){
     Axios.get('http://discovery.hubsvc.itv.com/platform/itvonline/ctv/categories?', {
-      headers: { 'Accept': 'application/vnd.itv.hubsvc.category.v2+hal+json; charset=UTF-8'}})
-      .then(res => this.setState({ categories: res.data }), console.log(this.state) )
+      headers: { 'Accept': 'application/vnd.itv.hubsvc.programme.v2+hal+json; charset=UTF-8'}})
+      .then(res => console.log(res.data._embedded.categories[0]._links.productions.href) )
       .catch(err => this.setState({ error: err.response.data.message }));
   }
 
