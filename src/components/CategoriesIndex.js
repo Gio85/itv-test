@@ -5,20 +5,27 @@ class CategoriesIndex extends React.Component {
 
   state = {
     categories: [],
-    selections: '',
+    selections: 'Children',
     error: []
   }
 
   handleChange = ({ target: { value }}) => {
     this.setState({ selections: value });
+    this.getProgrammes();
   }
 
-  componentDidUpdate() {
-    console.log('INSIDE WILL MOUNT');
+  componentDidMount() {
+    console.log('INSIDE DID-MOUNT');
+    this.getProgrammes();
+  }
+
+  getProgrammes = () => {
     Axios
       .get(`http://discovery.hubsvc.itv.com/platform/itvonline/ctv/programmes?category=${this.state.selections}&broadcaster=itv&features=hls,aes`,
         {
-          headers: {'Accept': 'application/vnd.itv.hubsvc.programme.v3+hal+json; charset=UTF-8'}
+          headers: {
+            'Accept': 'application/vnd.itv.hubsvc.programme.v3+hal+json; charset=UTF-8'
+          }
         })
       .then(res => this.setState({ categories: res.data._embedded.programmes }, console.log( 'THEN------>', res.data )))
       .catch(err => console.log('ERROR------>', err));
@@ -38,7 +45,7 @@ class CategoriesIndex extends React.Component {
               onChange={this.handleChange}
               placeholder='Select'
             >
-              <option value="">Please select your category</option>
+              <option value="" disabled>Please select your category</option>
               <option>Children</option>
               <option>Comedy</option>
               <option>Entertainment</option>
