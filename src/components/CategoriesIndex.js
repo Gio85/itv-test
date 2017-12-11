@@ -13,7 +13,7 @@ class CategoriesIndex extends React.Component {
     this.setState({ selections: value });
   }
 
-  componentWillUpdate() {
+  componentDidUpdate() {
     console.log('INSIDE WILL MOUNT');
     Axios
       .get(`http://discovery.hubsvc.itv.com/platform/itvonline/ctv/programmes?category=${this.state.selections}&broadcaster=itv&features=hls,aes`,
