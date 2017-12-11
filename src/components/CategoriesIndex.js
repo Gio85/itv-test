@@ -8,14 +8,14 @@ class CategoriesIndex extends React.Component {
   };
 
   componentDidMount(){
-    Axios.get('http://discovery.hubsvc.itv.com/platform/itvonline/ctv/categories?', {
-      headers: { 'Accept': 'application/vnd.itv.hubsvc.category.v2+hal+json; charset=UTF-8'}})
-      .then(res => this.setState({ categories: res.data }),
-        err => this.setState({ error: err.response.data.message }));
+    Axios.get('http://discovery.hubsvc.itv.com/platform/itvonline/ctv/programmes?', {
+      headers: { 'Accept': 'application/hal+json; charset=UTF-8'}})
+      .then(res => this.setState({ categories: res.data }))
+      .catch(err => this.setState({ error: err.response.data.message }));
   }
 
   render() {
-    console.log('ERROR', this.state.error);
+    console.log('ERROR', this.state.categories);
     return(
       <main>
         <h2>Categories</h2>
