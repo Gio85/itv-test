@@ -15,7 +15,7 @@ class CategoriesIndex extends React.Component {
       () => this.getProgrammes() );
   }
 
-  componentWillMount() {
+  componentDidMount() {
     console.log('INSIDE DID-MOUNT');
     this.getProgrammes();
   }
@@ -39,7 +39,6 @@ class CategoriesIndex extends React.Component {
         <header className="row">
           <img className="logo" src="http://www.show-girls.co.uk/wp-content/uploads/2015/06/itv-logo.png" />
           <h1>ITV Programmes</h1>
-          <p>Please select a category</p>
           <form
             className="col-md-6">
             <div>
@@ -64,6 +63,8 @@ class CategoriesIndex extends React.Component {
           </form>
         </header>
         <div>
+          {this.state.selections === '' &&
+            <h3>Please select a category.</h3>}
           {this.state.selections && this.state.categories.map((programme, i) =>{
             return(
               <div key={i} className="row">
@@ -71,7 +72,7 @@ class CategoriesIndex extends React.Component {
                 <div className="col-md-8">
                   <h2>{programme.title}</h2>
                   <p>{programme.synopses.ninety}</p>
-                  <p>Broadcast time: {programme._embedded.latestProduction.duration.display} runtime</p>
+                  <p>Broadcast time: {programme._embedded.latestProduction.duration.display}</p>
                   <h6>{programme._embedded.latestProduction._embedded.channel.name} - {programme._embedded.latestProduction._embedded.channel.strapline}</h6>
                 </div>
               </div>
