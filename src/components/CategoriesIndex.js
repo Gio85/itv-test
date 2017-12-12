@@ -1,6 +1,6 @@
+
 import React from 'react';
 import Axios from 'axios';
-
 
 class CategoriesIndex extends React.Component {
 
@@ -11,11 +11,11 @@ class CategoriesIndex extends React.Component {
   }
 
   handleChange = ({ target: { value }}) => {
-    this.setState({ selections: value });
-    this.getProgrammes();
+    this.setState({ selections: value },
+      () => this.getProgrammes() );
   }
 
-  componentDidMount() {
+  componentWillMount() {
     console.log('INSIDE DID-MOUNT');
     this.getProgrammes();
   }
@@ -28,7 +28,7 @@ class CategoriesIndex extends React.Component {
             'Accept': 'application/vnd.itv.hubsvc.programme.v3+hal+json; charset=UTF-8'
           }
         })
-      .then(res => this.setState({ categories: res.data._embedded.programmes }, console.log( 'THEN------>', res.data )))
+      .then(res => this.setState({ categories: res.data._embedded.programmes }, console.log( 'THEN------>', res.data._embedded.programmes )))
       .catch(err => console.log('ERROR------>', err));
   }
 
