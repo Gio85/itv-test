@@ -6,7 +6,7 @@ class CategoriesIndex extends React.Component {
 
   state = {
     categories: [],
-    selections: 'Children',
+    selections: '',
     error: []
   }
 
@@ -38,7 +38,7 @@ class CategoriesIndex extends React.Component {
       <main>
         <header className="row">
           <img className="logo" src="http://www.show-girls.co.uk/wp-content/uploads/2015/06/itv-logo.png" />
-          <h1>ITV channels</h1>
+          <h1>ITV Programmes</h1>
           <p>Please select a category</p>
           <form
             className="col-md-6">

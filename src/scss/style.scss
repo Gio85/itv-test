@@ -1,12 +1,18 @@
 body{
   font-family: 'Muli', sans-serif;
+  background-color: black;
 }
 
 main {
   max-width: 988px;
   margin: auto;
 }
-
+header{
+  padding-left: 20px;
+}
+.col-md-6{
+  padding-left: 0;
+}
 img{
   width: 300px;
   margin-top: 20px;
@@ -17,4 +23,8 @@ img{
 .row{
   padding-bottom: 20px;
   border-bottom: 2px solid grey;
+}
+.container{
+
+  background-color: white;
 }
