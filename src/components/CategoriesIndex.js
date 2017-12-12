@@ -53,6 +53,7 @@ class CategoriesIndex extends React.Component {
                 <option value="" disabled>Please select</option>
                 <option>Children</option>
                 <option>Comedy</option>
+                <option value="Drama+%26+Soaps">Drama & Soaps</option>
                 <option>Entertainment</option>
                 <option>Factual</option>
                 <option>Films</option>
