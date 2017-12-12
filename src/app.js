@@ -12,9 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <main>
-          <img src="http://www.show-girls.co.uk/wp-content/uploads/2015/06/itv-logo.png" />
-          <h1>ITV channels</h1>
+        <main className="container">
           <Route path="/" component={CategoriesIndex} />
         </main>
       </BrowserRouter>

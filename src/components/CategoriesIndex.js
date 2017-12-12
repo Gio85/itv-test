@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 
+
 class CategoriesIndex extends React.Component {
 
   state = {
@@ -35,11 +36,14 @@ class CategoriesIndex extends React.Component {
     console.log('INSIDE THE RENDER', this.state.categories);
     return(
       <main>
-        <header className="strapline">
+        <header className="row">
+          <img className="logo" src="http://www.show-girls.co.uk/wp-content/uploads/2015/06/itv-logo.png" />
+          <h1>ITV channels</h1>
+          <p>Please select a category</p>
           <form
-            className="input-group">
+            className="col-md-6">
             <div>
-              <label htmlFor="per-page">Categories</label>
+              <label htmlFor="per-page"></label>
               <select
                 className="form-control"
                 value={this.state.selections}
@@ -58,12 +62,12 @@ class CategoriesIndex extends React.Component {
             </div>
           </form>
         </header>
-        <div className="container">
+        <div>
           {this.state.selections && this.state.categories.map((programme, i) =>{
             return(
               <div key={i} className="row">
-                <img className="col-4" src={programme._embedded.latestProduction._links.image.href} />
-                <div className="col-8">
+                <img className="col-md-4" src={programme._embedded.latestProduction._links.image.href} />
+                <div className="col-md-8">
                   <h2>{programme.title}</h2>
                   <p>{programme.synopses.ninety}</p>
                   <p>Broadcast time: {programme._embedded.latestProduction.duration.display} runtime</p>
