@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import CategoriesIndex from './components/CategoriesIndex';
 
+
 import 'bootstrap-css-only';
 import './scss/style.scss';
 
