@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Axios from 'axios';
-import CategoriesSelection from './CategoriesSelection';
+
 
 class CategoriesIndex extends React.Component {
 
@@ -37,9 +37,32 @@ class CategoriesIndex extends React.Component {
     console.log('INSIDE THE RENDER', this.state.categories);
     return(
       <main>
-        <CategoriesSelection
-          handleChange={this.handleChange}
-        />
+        <header className="row">
+          <img className="logo" src="http://www.show-girls.co.uk/wp-content/uploads/2015/06/itv-logo.png" />
+          <h1>ITV Programmes</h1>
+          <form
+            className="col-md-6">
+            <div>
+              <label htmlFor="per-page"></label>
+              <select
+                className="form-control"
+                onChange={this.handleChange}
+                placeholder='Select'
+
+              >
+                <option value="" disabled>Please select</option>
+                <option>Children</option>
+                <option>Comedy</option>
+                <option value="Drama+%26+Soaps">Drama & Soaps</option>
+                <option>Entertainment</option>
+                <option>Factual</option>
+                <option>Films</option>
+                <option>News</option>
+                <option>Sport</option>
+              </select>
+            </div>
+          </form>
+        </header>
         <div>
           {this.state.selections === '' &&
             <h3>Please select a category.</h3>}
